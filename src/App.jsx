@@ -9,11 +9,22 @@ import Footer from './components/Footer.jsx'
 import Contact from './components/contact.jsx'
 import { GlobeHero } from "./components/Golbe.jsx";
 import LoginPage from './components/Login.jsx'
+import ExplorePage from './components/explore/Explore.jsx';
+import Products  from './components/explore/products.jsx';
+import Cart from './components/explore/Cart.jsx';
+import { CartProvider } from './components/explore/CartContext.jsx';
+import Navbar from './components/navbar.jsx';
+
+
+
 function App() {
 
   return (
+    <CartProvider>
   <Router>
-    <SplashCursor />
+    {/* <SplashCursor /> */}
+    <Cart />
+    <Navbar />
     <Routes>
       {/* THE MAIN LANDING PAGE ROUTE */}
       <Route 
@@ -29,11 +40,20 @@ function App() {
           </>
         } 
       />
-
+      <Route path="/explore" element={
+        
+        <>
+        {/* <Cart /> */}
+        <ExplorePage />
+        <Products />
+        <Footer />
+      </>
+        } />
       {/* THE LOGIN PAGE ROUTE */}
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   </Router>
+  </CartProvider>
 );
 }
 

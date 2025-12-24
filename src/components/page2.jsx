@@ -4,6 +4,14 @@ import { Text, PerspectiveCamera, Float, MeshDistortMaterial } from '@react-thre
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { useNavigate } from "react-router-dom";
+
+// const navigate = useNavigate();
+
+// const handleLogin = () => {
+//   navigate("/login");
+// };
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,6 +48,7 @@ const RippleShaderMaterial = {
 };
 
 const InteractiveHeroText = () => {
+  // const navigate = useNavigate();
   const { viewport } = useThree();
   const shaderMaterial = useMemo(() => new THREE.ShaderMaterial(RippleShaderMaterial), []);
 
@@ -49,6 +58,9 @@ const InteractiveHeroText = () => {
     shaderMaterial.uniforms.uTime.value = state.clock.getElapsedTime();
   });
 
+  // const handleLogin = () => {
+  //         navigate("/login");
+  //     };
   return (
     <Float speed={2} rotationIntensity={0.5}>
       <Text fontSize={viewport.width * 0.18} font="/fonts/Inter-Black.woff" textAlign="center">
@@ -78,6 +90,13 @@ const MainExperience = () => {
         }
       });
 
+      // const navigate = useNavigate();
+
+      // const handleLogin = () => {
+      //     navigate("/login");
+      // };
+
+
       // Product Stagger Reveal
       gsap.from(".product-card", {
         scrollTrigger: {
@@ -101,19 +120,24 @@ const MainExperience = () => {
     { id: 3, name: "Aether Shell", price: "$520", img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800" },
   ];
 
+  // const navigate = useNavigate();
+
+  // const handleLogin = () => {
+  //         navigate("/login");
+  //     };
   return (
     <div ref={containerRef} className="bg-[#050505] text-white overflow-x-hidden">
       
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-[100] flex justify-between items-center px-12 py-8 mix-blend-difference">
+      {/* <nav className="fixed top-0 w-full z-[100] flex justify-between items-center px-12 py-8 mix-blend-difference">
         <div className="text-2xl font-black italic tracking-tighter">NEBULA.</div>
         <div className="flex gap-10 items-center">
           <button className="text-[10px] tracking-[0.3em] uppercase opacity-50 hover:opacity-100 transition-opacity">Archive</button>
-          <button className="px-8 py-2 border border-white/20 rounded-full bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all text-xs uppercase font-bold">
+          <button onClick={handleLogin} className="px-8 py-2 border border-white/20 rounded-full bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all text-xs uppercase font-bold">
             Login
           </button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* PAGE 1: INTERACTIVE HERO */}
       <section className="relative h-screen w-full flex items-center justify-center">
