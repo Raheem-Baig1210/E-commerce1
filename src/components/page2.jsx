@@ -47,29 +47,29 @@ const RippleShaderMaterial = {
   `
 };
 
-const InteractiveHeroText = () => {
-  // const navigate = useNavigate();
-  const { viewport } = useThree();
-  const shaderMaterial = useMemo(() => new THREE.ShaderMaterial(RippleShaderMaterial), []);
+// const InteractiveHeroText = () => {
+//   // const navigate = useNavigate();
+//   const { viewport } = useThree();
+//   const shaderMaterial = useMemo(() => new THREE.ShaderMaterial(RippleShaderMaterial), []);
 
-  useFrame((state) => {
-    shaderMaterial.uniforms.uMouse.value.x = (state.mouse.x + 1) / 2;
-    shaderMaterial.uniforms.uMouse.value.y = (state.mouse.y + 1) / 2;
-    shaderMaterial.uniforms.uTime.value = state.clock.getElapsedTime();
-  });
+//   useFrame((state) => {
+//     shaderMaterial.uniforms.uMouse.value.x = (state.mouse.x + 1) / 2;
+//     shaderMaterial.uniforms.uMouse.value.y = (state.mouse.y + 1) / 2;
+//     shaderMaterial.uniforms.uTime.value = state.clock.getElapsedTime();
+//   });
 
-  // const handleLogin = () => {
-  //         navigate("/login");
-  //     };
-  return (
-    <Float speed={2} rotationIntensity={0.5}>
-      <Text fontSize={viewport.width * 0.18} font="/fonts/Inter-Black.woff" textAlign="center">
-        CREATE
-        <primitive object={shaderMaterial} attach="material" />
-      </Text>
-    </Float>
-  );
-};
+//   // const handleLogin = () => {
+//   //         navigate("/login");
+//   //     };
+//   return (
+//     <Float speed={2} rotationIntensity={0.5}>
+//       <Text fontSize={viewport.width * 0.18} font="/fonts/Inter-Black.woff" textAlign="center">
+//         CREATE
+//         <primitive object={shaderMaterial} attach="material" />
+//       </Text>
+//     </Float>
+//   );
+// };
 
 // --- 2. Main Page Component ---
 const MainExperience = () => {
@@ -140,7 +140,7 @@ const MainExperience = () => {
       </nav> */}
 
       {/* PAGE 1: INTERACTIVE HERO */}
-      <section className="relative h-screen w-full flex items-center justify-center">
+      {/* <section className="relative h-screen w-full flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Canvas>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />
@@ -150,7 +150,7 @@ const MainExperience = () => {
         <div className="absolute bottom-10 left-12 text-[10px] uppercase tracking-[0.5em] opacity-30">
           [ Interaction Active ]
         </div>
-      </section>
+      </section> */}
 
       {/* PAGE 2: HORIZONTAL SHOWCASE (Replacing Purple with Images) */}
       <div className="horizontal-wrapper relative h-screen overflow-hidden">
@@ -231,7 +231,7 @@ const MainExperience = () => {
         </footer>
       </section>
 
-      <style jsx>{`
+      <style>{`
         .outline-text {
           -webkit-text-stroke: 1px rgba(255,255,255,0.3);
           color: transparent;

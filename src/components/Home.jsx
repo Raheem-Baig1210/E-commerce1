@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, Center, Text3D, Float } from '@react-three/drei';
+import { Points, PointMaterial, Center, Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 
@@ -51,13 +51,14 @@ const Home = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Entrance Animation for Nav
+      if (navRef.current && navRef.current.children.length > 0){
       gsap.from(navRef.current, {
         y: -100,
         opacity: 0,
         duration: 1.2,
         ease: "expo.out"
       });
-
+    }
       // Split text-style animation for the main title
       const chars = titleRef.current.querySelectorAll('.char');
       gsap.from(chars, {
@@ -132,7 +133,7 @@ const Home = () => {
         <span>© All Rights Reserved</span>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .char {
           display: inline-block;
           transform-origin: bottom;
